@@ -192,7 +192,21 @@
         Advertisement Space
       </div>
     </section>
+<section id="rewards">
+  <h2>Your Points</h2>
+  <p id="points">0 points</p>
+  <button class="btn" onclick="earnPoints()">View Ad & Earn Points</button>
+</section>
 
+<script>
+  let points = 0;
+
+  function earnPoints() {
+    points += 10;
+    document.getElementById("points").textContent = points + " points";
+    alert("You earned 10 points!");
+  }
+        </script>
   </main>
 
   <footer>
