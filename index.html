@@ -220,10 +220,12 @@
 </section>
 
 <script>
-  let points = 0;
+  let points = Number(localStorage.getItem("advibePoints")) || 0;
+document.getElementById("points").textContent = points + " points";
 
   function earnPoints() {
     points += 10;
+    localStorage.setItem("advibePoints", points);
     document.getElementById("points").textContent = points + " points";
     alert("You earned 10 points!");
   }
