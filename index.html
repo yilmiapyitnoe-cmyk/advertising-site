@@ -216,7 +216,8 @@
 <section id="rewards">
   <h2>Your Points</h2>
   <p id="points">0 points</p>
-  <button class="btn" onclick="earnPoints()">View Ad & Earn Points</button>
+  
+  <button class="btn" onclick="dailyBonus()">Daily Bonus +20 Points</button>tton class="btn" onclick="earnPoints()">View Ad & Earn Points</button>
 </section>
 
 <script>
@@ -229,7 +230,23 @@ document.getElementById("points").textContent = points + " points";
     document.getElementById("points").textContent = points + " points";
     alert("You earned 10 points!");
   }
-        </script>
+        
+    function dailyBonus() {
+  const today = new Date().toDateString();
+  const lastBonus = localStorage.getItem("advibeDailyBonus");
+
+  if (lastBonus === today) {
+    alert("Daily Bonus already claimed today!");
+    return;
+  }
+
+  points += 20;
+  localStorage.setItem("advibePoints", points);
+  localStorage.setItem("advibeDailyBonus", today);
+  document.getElementById("points").textContent = points + " points";
+  alert("You earned 20 bonus points!");
+}}
+</script>
   </main>
 
   <footer>
